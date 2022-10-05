@@ -258,18 +258,24 @@ def main(args):
     classes = 1
     one_hot = 'no'
     target_size = (args.vs_target_size, args.vs_target_size)
+    if not args.train_path:
+        train_path_ = args.dataset+'/train'
+    else:
+        train_path_ = args.train_path
     if args.dataset == 'IDRiD':
         save_size = (2752, 2752)
+        train_path_ += '/4 classes'
     else:
         save_size = (1024, 1024)
+        train_path_ += '/2 classes'
     max_epoch = args.vs_max_epoch
     step = args.vs_step
     root = args.vs_root
     train_path = root + '/train'
     val_path = root + '/val'  # train and val in vessel seg dataset
     img_folder = 'image_zoom_hd'  # the name of image folder
-    test_path = args.train_path  # test in DR seg dataset
-    save_path = args.train_path+'/vessel_mask_zoom_hd'  # save path of the testing results
+    test_path = train_path_  # test in DR seg dataset
+    save_path = train_path_ + '/vessel_mask_zoom_hd' # save path of the testing results
     log_path = root + '/tmp/ves_seg_unet_512'
     ckp_path = root + '/results' # the path of the trained model
 
@@ -330,7 +336,7 @@ if __name__ == '__main__':
     #paraser.add_argument('--vs_save_size', type=int, default=2752, help='image size for saving')
     paraser.add_argument('--vs_max_epoch', type=int, default=200, help='max epoch')
     paraser.add_argument('--vs_root', type=str, default='.', help='root directory of vessel seg')
-    paraser.add_argument('--train_path', type=str, default='../IDRiD/train/4 classes', help='path of training set')
+    paraser.add_argument('--train_path', type=str, default='../IDRiD/train', help='path of training set') #'IDRiD/train'
     args = paraser.parse_args()
 
 
