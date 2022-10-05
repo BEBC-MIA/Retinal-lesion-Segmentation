@@ -192,8 +192,8 @@ def main(args):
             mixlabel_savedir = os.path.join('IDRiD', f, '4 classes/label_zoom_hd')
             zoom(img_path, label_path, img_savedir, label_savedir, mixlabel_savedir, size=(2752,2752), ds='IDRiD')
         elif dataset == 'e_ophtha':
-            img_path = os.path.join('e_ophtha/image', f)
-            label_path = os.path.join('e_ophtha/label', f)
+            img_path = os.path.join('original_data/e_ophtha/image', f)
+            label_path = os.path.join('original_data/e_ophtha/label', f)
             if f == 'test':
                 f = 'val'
             img_savedir = os.path.join('e_ophtha', f, '2 classes/image_zoom_hd')

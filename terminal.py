@@ -7,7 +7,7 @@
 import argparse
 paraser = argparse.ArgumentParser()
 # control commands
-paraser.add_argument('--preprocess', type=int, default=0,
+paraser.add_argument('--preprocess', type=int, default=1,
                          help='1: preprocessing of original dataset, 0: skip the step')
 paraser.add_argument('--vessel_seg', type=int, default=1,
                          help='1: vessel segmentation, 0: skip the step')
@@ -30,7 +30,7 @@ paraser.add_argument('--vs_max_epoch', type=int, default=200, help='max epoch')
 paraser.add_argument('--vs_root', type=str, default='vessel_seg', help='root directory of vessel seg')
 
 # Build poisson augmentation dataset
-paraser.add_argument('--dataset', type=str, default='IDRiD',
+paraser.add_argument('--dataset', type=str, default='e_ophtha',
                          help='The name of target dataset')
 paraser.add_argument('--original_data_dir', type=str, default='.',
                      help='root directory')
@@ -49,10 +49,7 @@ paraser.add_argument('--dens_SE', type=str, default='0_0',
 args = paraser.parse_args()
 #training and testing
 paraser.add_argument('--GPU_id', type=str, default='0', help='GPU id')
-
-paraser.add_argument('--log_name', type=str,
-                     default='IDRiD_1376_bs_1_reswunet++_gn_adamw_4classes_pb_aug20_EX60_HE0_MA100_SE0_test1',
-                     help='a log name for an exp')
+paraser.add_argument('--log_name', type=str,default=None, help='a log name for an exp')
 paraser.add_argument('--use_pb', type=str, default='yes', help='wo(yes) or w/o(no) PBDA')
 paraser.add_argument('--classes', type=int, default=5, help='number of label class')
 paraser.add_argument('--target_size', type=int, default=1376, help='input size of image')
@@ -75,18 +72,7 @@ paraser.add_argument('--loss', type=str, default='dice_CE', help='loss function'
 paraser.add_argument('--train_strategy', type=str, default='step_decay', help='lr decay strategy')
 paraser.add_argument('--save_result', type=str, default='y', help='save image results?')
 paraser.add_argument('--task', type=str, default=None, help='task')
-paraser.add_argument('--log_path', type=str, default='IDRiD/tmp/log_pb_dense/', help='log path')
-paraser.add_argument('--train_path', type=str, default='IDRiD/train/4 classes', help='path of training set')
-paraser.add_argument('--val_path', type=str, default='IDRiD/val/4 classes', help='path of val set')
-paraser.add_argument('--test_path', type=str, default='IDRiD/val/4 classes/image_zoom_hd',
-                     help='path of testing set')
-paraser.add_argument('--groundtruth_path', type=str, default='IDRiD/val/label_zoom_hd',
-                     help='path of groundtruth')
-paraser.add_argument('--save_path', type=str, default='IDRiD/result/4 classes/',
-                     help='path of results')
-paraser.add_argument('--load_dir_initial', type=str,
-                     default='IDRiD/result/4 classes/IDRiD_1376_bs_1_reswunet++_gn_adamw_4classes_pb_aug20_EX60_HE0_MA100_SE0_test1/dp3_lesion_initial.hdf5',
-                     help='path of fixed initial weight')
+paraser.add_argument('--train_path', type=str, default=None, help='path of training set')
 paraser.add_argument('--label_folder', type=str,
                      default='label_zoom_blend_hd_aug20_EX60_HE0_MA100_SE0',
                      help='name of label folder')
@@ -164,6 +150,10 @@ def run(args):
             main(args)
         if args.dataset == 'e_ophtha':
             from training_and_evaluation_train_on_batch_pb_for_ep import main
+            args.epochs = 28
+            args.target_size = 1024
+            args.train_num = 140
+            args.val_num = 7
             main(args)
 
 if __name__ == '__main__':

@@ -728,13 +728,17 @@ def main(args):
     train_strategy = args.train_strategy
     save_result = True if args.save_result == 'y' else False
     task = args.task
-    log_name = args.log_name
-    log_path = args.log_path
-    train_path = args.train_path
-    val_path = args.val_path
-    test_path = args.test_path
-    groundtruth_path = args.groundtruth_path
-    save_path = args.save_path + log_name
+    if args.log_name:
+        log_name = args.log_name
+    else:
+        log_name = args.dataset + '_' + str(args.target_size) + '_bs_' + str(
+            train_batch_size) + '_reswunet++_' + normalize + '_adamw_2classes_pb_aug20_EX60_HE0_MA100_SE0_test1'
+    log_path = args.dataset + '/tmp/log_pb_dense/'
+    train_path = args.dataset + '/train/2 classes'
+    val_path = args.dataset + '/val/2 classes'
+    test_path = args.dataset + '/val/2 classes/image_zoom_hd'
+    groundtruth_path = args.dataset + '/val/label_zoom_hd'
+    save_path = args.dataset + '/result/2 classes/' + log_name
     load_dir_initial = args.load_dir_initial
     folder_dict = {
         0: [args.image_folder, args.label_folder],
@@ -824,15 +828,6 @@ if __name__ == '__main__':
     paraser.add_argument('--train_strategy', type=str, default='step_decay', help='lr decay strategy')
     paraser.add_argument('--save_result', type=str, default='y', help='save image results?')
     paraser.add_argument('--task', type=str, default='ex_ma', help='task')
-    paraser.add_argument('--log_path', type=str, default='e_ophtha/tmp/log_pb_dense/', help='log path')
-    paraser.add_argument('--train_path', type=str, default='e_ophtha/train/2 classes', help='path of training set')
-    paraser.add_argument('--val_path', type=str, default='e_ophtha/val/2 classes', help='path of val set')
-    paraser.add_argument('--test_path', type=str, default='e_ophtha/val/2 classes/image_zoom_hd',
-                         help='path of testing set')
-    paraser.add_argument('--groundtruth_path', type=str, default='e_ophtha/val/label_zoom_hd',
-                         help='path of groundtruth')
-    paraser.add_argument('--save_path', type=str, default='e_ophtha/result/2 classes/',
-                         help='path of results')
     paraser.add_argument('--load_dir_initial', type=str,
                          default='e_ophtha/result/2 classes/e_ophtha_1024_bs_1_reswunet++_gn_adamw_2classes_pb_aug20_EX60_MA100_test1/ep_lesion_initial.hdf5',
                          help='path of fixed initial weight')
