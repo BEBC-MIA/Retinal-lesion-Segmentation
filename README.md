@@ -4,3 +4,6 @@ Diabetic retinopathy (DR) is one of the most important complications of diabetes
 # 1. Prepare data. 
 - The DR datasets we collected from [IDRiD dataset](https://doi.org/10.3390/data3030025) and [e-ophtha dataset](https://doi.org/10.1016/j.media.2014.05.004)
 
+## References
+* [Indian Diabetic Retinopathy Image Dataset (IDRiD): A Database for Diabetic Retinopathy Screening Research](https://doi.org/10.3390/data3030025)
+* [Exudate detection in color retinal images for mass screening of diabetic retinopathy](https://doi.org/10.1016/j.media.2014.05.004)
