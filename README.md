@@ -7,9 +7,16 @@ Diabetic retinopathy (DR) is one of the most important complications of diabetes
 ## 2. Environment
 - Please prepare an environment with python=3.7, and then use the command "pip install -r requirements.txt" for the dependencies.
 ## 3. Poisson-Blending data augmentation
-- Pre-processing on original dataset to crop the ROI region. you can type the following:
+- step1: Pre-processing on original dataset (IDRiD or e_ophtha) to crop the ROI region. 
+- step2: Generate masks of vessel and optic disc. 
+- step3: Build lesion library.
+- step4: Do Poisson-Blending data augmentation on target dataset.
+you can type the following:
 ```bash
-python terminal.py --preprocess=1 --dataset=IDRiD / python terminal.py --preprocess=1 --dataset=e_ophtha
+python terminal.py --preprocess=1 --vessel_seg=1 --OD_seg=1 --build_lesion_lab=1 --build_PBDA_dataset=1 --dataset=IDRiD
+```
+```bash
+python terminal.py --preprocess=1 --vessel_seg=1 --OD_seg=1 --build_lesion_lab=1 --build_PBDA_dataset=1 --dataset=e_ophtha
 ```
 ## 4. Train and test DSR-U-Net++ on augmented datasets
 - 
