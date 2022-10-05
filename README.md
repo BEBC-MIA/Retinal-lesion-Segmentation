@@ -6,7 +6,10 @@ Diabetic retinopathy (DR) is one of the most important complications of diabetes
 - The vessel segmentation dataset we used to trained a U-Net for getting vessel masks is in ["./vessel_seg"](vessel_seg). The weight file of trained model can be gotten from [Baidu Netdisk](https://pan.baidu.com/s/1LWtQo3Z-BMdLjhMVd5PSRA?pwd=ikrm)(access code: ikrm), and please put it into ["./vessel_seg/results"](vessel_seg/results). If you want to train a new model, please go to ["./vessel_seg/README.md"](vessel_seg/README.md) for details.
 ## 2. Environment
 - Please prepare an environment with python=3.7, and then use the command "pip install -r requirements.txt" for the dependencies.
-
+## 3. Poisson-Blending data augmentation
+- 
+## 4. Train and test DSR-U-Net++ on augmented datasets
+- 
 ## References
 * [Indian Diabetic Retinopathy Image Dataset (IDRiD): A Database for Diabetic Retinopathy Screening Research](https://doi.org/10.3390/data3030025)
 * [Exudate detection in color retinal images for mass screening of diabetic retinopathy](https://doi.org/10.1016/j.media.2014.05.004)
