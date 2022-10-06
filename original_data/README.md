@@ -1,4 +1,4 @@
-## Please decompress the datasets here!
+## Please decompress the datasets.zip here!
 
 ## 1. Dataset description
 - **IDRiD**
