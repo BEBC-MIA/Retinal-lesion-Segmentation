@@ -338,19 +338,5 @@ if __name__ == '__main__':
     paraser.add_argument('--vs_root', type=str, default='.', help='root directory of vessel seg')
     paraser.add_argument('--train_path', type=str, default='../IDRiD/train', help='path of training set') #'IDRiD/train'
     args = paraser.parse_args()
-
-
-
-    '''
-    paraser = argparse.ArgumentParser()
-    paraser.add_argument('--dataset', type=str, default='IDRiD')
-    paraser.add_argument('--vs_step', type=str, default='test', help='train, test, all')
-    paraser.add_argument('--vs_batch_size', type=int, default=2, help='batch size for training and testing')
-    paraser.add_argument('--vs_target_size', type=int, default=512, help='image size for training and testing')
-    paraser.add_argument('--vs_save_size', type=int, default=1024, help='image size for saving')
-    paraser.add_argument('--vs_max_epoch', type=int, default=200, help='max epoch')
-    paraser.add_argument('--vs_root', type=str, default='.', help='root directory of vessel seg')
-    paraser.add_argument('--train_path', type=str, default='../e_ophtha/train/2 classes', help='path of training set')
-    args = paraser.parse_args()
-    '''
+    
     main(args)
