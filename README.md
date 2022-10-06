@@ -11,15 +11,22 @@ Diabetic retinopathy (DR) is one of the most important complications of diabetes
 - step2: Generate masks of vessel and optic disc. 
 - step3: Build lesion library.
 - step4: Do Poisson-Blending data augmentation on target dataset.
-you can type the following:
+For IDRiD and e_ophtha, you can type the following:
 ```bash
-python terminal.py --preprocess=1 --vessel_seg=1 --OD_seg=1 --build_lesion_lab=1 --build_PBDA_dataset=1 --dataset=IDRiD
+python terminal.py --preprocess=1 --vessel_seg=1 --OD_seg=1 --build_lesion_lab=1 --build_PBDA_dataset=1 --dataset=IDRiD --dens_EX=0_60 --dens_MA=0_100
 ```
 ```bash
-python terminal.py --preprocess=1 --vessel_seg=1 --OD_seg=1 --build_lesion_lab=1 --build_PBDA_dataset=1 --dataset=e_ophtha
+python terminal.py --preprocess=1 --vessel_seg=1 --OD_seg=1 --build_lesion_lab=1 --build_PBDA_dataset=1 --dataset=e_ophtha --dens_EX=0_60 --dens_MA=0_100
 ```
 ## 4. Train and test DSR-U-Net++ on augmented datasets
-- 
+- For training and testing the model on IDRiD:
+```bash
+python terminal.py --step=0 --dataset=IDRiD --target_size=1376 --classes=5 --train_num=540 --val_num=27 --epochs=26 --train_batch_size=1
+```
+- For training and testing the model on e_ophtha:
+```bash
+python terminal.py --step=0 --dataset=e_ophtha --target_size=1024 --classes=3 --train_num=140 --val_num=7 --epochs=28 --train_batch_size=1 --task=ex_ma
+```
 ## References
 * [Indian Diabetic Retinopathy Image Dataset (IDRiD): A Database for Diabetic Retinopathy Screening Research](https://doi.org/10.3390/data3030025)
 * [Exudate detection in color retinal images for mass screening of diabetic retinopathy](https://doi.org/10.1016/j.media.2014.05.004)
