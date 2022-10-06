@@ -80,53 +80,6 @@ paraser.add_argument('--image_folder', type=str,
                      default='image_zoom_blend_hd_aug20_EX60_HE0_MA100_SE0',
                      help='name of image folder')
 args = paraser.parse_args()
-
-'''paraser.add_argument('--log_name', type=str,
-                     default='e_ophtha_1024_bs_1_reswunet++_gn_adamw_2classes_pb_aug20_EX60_MA100_test1',
-                     help='a log name for an exp')
-paraser.add_argument('--use_pb', type=str, default='yes', help='wo(yes) or w/o(no) PBDA')
-paraser.add_argument('--classes', type=int, default=3, help='number of label class')
-paraser.add_argument('--target_size', type=int, default=1024, help='input size of image')
-paraser.add_argument('--train_batch_size', type=int, default=1, help='batch size for training')
-paraser.add_argument('--val_batch_size', type=int, default=1, help='batch size for test')
-paraser.add_argument('--val_num', type=int, default=7, help='iterations of testing in one epoch')
-paraser.add_argument('--train_num', type=int, default=140, help='iterations of training in one epoch')
-paraser.add_argument('--extra_aug', type=str, default='y', help='extra augmentation methods')
-paraser.add_argument('--flag_multi_class', type=str, default='y', help='classes > 1?')
-paraser.add_argument('--epochs', type=int, default=28, help='maximum epochs for training')
-paraser.add_argument('--bg_epoch', type=int, default=0, help='beginning epoch number')
-paraser.add_argument('--learning_rate', type=int, default=0.0001, help='learning rate')
-paraser.add_argument('--weight_decay_rate', type=int, default=0.0001, help='weight decay rate')
-paraser.add_argument('--model_name', type=str, default='unet_plusplus',
-                     help='model name: unet_plusplus/unet/deeplabv3+/unet3_plus/original_unet_plusplus')
-paraser.add_argument('--supervision', type=str, default='y', help='using supervision')
-paraser.add_argument('--use_ps', type=str, default='y', help='using pixel-shuffling')
-paraser.add_argument('--norm', type=str, default='gn', help='bn/gn')
-paraser.add_argument('--loss', type=str, default='dice_CE', help='loss function')
-paraser.add_argument('--train_strategy', type=str, default='step_decay', help='lr decay strategy')
-paraser.add_argument('--save_result', type=str, default='y', help='save image results?')
-paraser.add_argument('--task', type=str, default='ex_ma', help='task')
-paraser.add_argument('--log_path', type=str, default='e_ophtha/tmp/log_pb_dense/', help='log path')
-paraser.add_argument('--train_path', type=str, default='e_ophtha/train/2 classes',
-                     help='path of training set')
-paraser.add_argument('--val_path', type=str, default='e_ophtha/val/2 classes', help='path of val set')
-paraser.add_argument('--test_path', type=str, default='e_ophtha/val/2 classes/image_zoom_hd',
-                     help='path of testing set')
-paraser.add_argument('--groundtruth_path', type=str, default='e_ophtha/val/label_zoom_hd',
-                     help='path of groundtruth')
-paraser.add_argument('--save_path', type=str, default='e_ophtha/result/2 classes/',
-                     help='path of results')
-paraser.add_argument('--load_dir_initial', type=str,
-                     default='e_ophtha/result/2 classes/e_ophtha_1024_bs_1_reswunet++_gn_adamw_2classes_pb_aug20_EX60_MA100_test1/dp3_lesion_initial.hdf5',
-                     help='path of fixed initial weight')
-paraser.add_argument('--label_folder', type=str,
-                     default='label_zoom_blend_hd_aug20_EX60_HE0_MA100_SE0',
-                     help='name of label folder')
-paraser.add_argument('--image_folder', type=str,
-                     default='image_zoom_blend_hd_aug20_EX60_HE0_MA100_SE0',
-                     help='name of image folder')
-args = paraser.parse_args()'''
-
 print(args)
 def run(args):
     if args.preprocess:
