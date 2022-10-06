@@ -7,7 +7,7 @@
 │    ├── image_zoom_hd
 │    │    └── *.jpg
 │    └── label_zoom_hd
-│         
+│         └── *.jpg
 └── val
      ├── image_zoom_hd
      │    └── *.jpg
