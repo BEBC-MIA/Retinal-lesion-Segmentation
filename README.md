@@ -30,7 +30,7 @@ python terminal.py --step=0 --dataset=e_ophtha --target_size=1024 --classes=3 --
 ## References
 * [Indian Diabetic Retinopathy Image Dataset (IDRiD): A Database for Diabetic Retinopathy Screening Research](https://doi.org/10.3390/data3030025)
 * [Exudate detection in color retinal images for mass screening of diabetic retinopathy](https://doi.org/10.1016/j.media.2014.05.004)
-
+* [Simultaneous arteriole and venule segmentation with domain-specific loss function on a new public database](https://doi.org/10.1364/BOE.9.003153)
 ## Citations
 
 ```bibtex
