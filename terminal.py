@@ -7,19 +7,19 @@
 import argparse
 paraser = argparse.ArgumentParser()
 # control commands
-paraser.add_argument('--preprocess', type=int, default=1,
+paraser.add_argument('--preprocess', type=int, default=0,
                          help='1: preprocessing of original dataset, 0: skip the step')
-paraser.add_argument('--vessel_seg', type=int, default=1,
+paraser.add_argument('--vessel_seg', type=int, default=0,
                          help='1: vessel segmentation, 0: skip the step')
-paraser.add_argument('--OD_seg', type=int, default=1,
+paraser.add_argument('--OD_seg', type=int, default=0,
                          help='1: optic disc segmentation based on vessel segmentation, 0: skip the step')
-paraser.add_argument('--build_lesion_lab', type=int, default=1,
+paraser.add_argument('--build_lesion_lab', type=int, default=0,
                          help='1: crop lesion and build lesion lab, 0: skip the step')
-paraser.add_argument('--build_PBDA_dataset', type=int, default=1,
+paraser.add_argument('--build_PBDA_dataset', type=int, default=0,
                          help='1: do PBDA and build an aug dataset, 0: skip the step')
-paraser.add_argument('--step', type=int, default=2, help='-1 denotes skipping the step,'
-                                                         '0 denotes training with random initial weight,'
-                                                         '1 denotes training with a fixed initial weight, '
+paraser.add_argument('--step', type=int, default=-1, help='-1 denotes skipping the step,'
+                                                         '0 denotes training and testing with random initial weight,'
+                                                         '1 denotes training and testing with a fixed initial weight, '
                                                          '2 denotes testing only')
 
 # vessel segmentation
