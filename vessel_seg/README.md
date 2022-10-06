@@ -19,3 +19,4 @@
 ```bash
 python terminal.py --vessel_seg=1 --vs_step=train --vs_batch_size=2 --vs_target_size=512 --vs_max_epoch=200
 ```
+- The weight file of trained model will be save in [./results](results).
