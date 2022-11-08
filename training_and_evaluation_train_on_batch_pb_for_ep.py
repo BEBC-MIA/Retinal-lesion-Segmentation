@@ -778,7 +778,7 @@ def main(args):
           classes = classes,
           target_size = target_size,
           train_batch_size = train_batch_size,
-          val_batch_size = val_batch_size,       #keras只显示验证集每个batch的loss而非整个epoch的平均值，因此在不修改后端代码的情况下应设置较大的val_batchsize
+          val_batch_size = val_batch_size,       
           val_num = val_num,
           train_num = train_num,
           epochs = epochs,
